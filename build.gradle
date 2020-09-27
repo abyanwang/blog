@@ -55,6 +55,10 @@ subprojects {
 
         testCompileOnly 'org.projectlombok:lombok:1.18.12'
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+        // https://mvnrepository.com/artifact/commons-codec/commons-codec
+        compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+
     }
 }
 

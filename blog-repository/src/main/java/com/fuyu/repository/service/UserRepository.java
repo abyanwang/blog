@@ -11,7 +11,7 @@ public interface UserRepository {
     Integer insertUserDO(BlogUserDO blogUserDO);
 
     /**
-     * 通过uid或者username来更新用户信息.
+     * 通过uid来更新用户信息.
      * @param blogUserDO
      * @return
      */

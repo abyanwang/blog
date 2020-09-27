@@ -1,7 +1,10 @@
 package com.fuyu.domain.bo;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class BlogUserDO implements Serializable {
     private Long id;
 

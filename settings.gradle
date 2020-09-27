@@ -4,4 +4,6 @@ include 'blog-tool'
 include 'blog-repository'
 include 'blog-domain'
 include 'blog-common'
+include 'blog-contract'
+include 'blog-logic'
 

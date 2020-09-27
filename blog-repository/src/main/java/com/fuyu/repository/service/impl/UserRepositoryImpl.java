@@ -25,12 +25,9 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public Integer updateUserDO(BlogUserDO blogUserDO) {
         //判断uid和username都为空的话不能调用接口逻辑.
-        if (blogUserDO.getUid() == null && blogUserDO.getUserName() == null)return 0;
+        if (blogUserDO.getUid() == null)return 0;
         BlogUserDOExample blogUserDOExample = new BlogUserDOExample();
         BlogUserDOExample.Criteria criteria = blogUserDOExample.createCriteria();
-        if (!StringUtils.isEmpty(blogUserDO.getUserName())) {
-            criteria.andUserNameEqualTo(blogUserDO.getUserName());
-        }
         if (blogUserDO.getUid() != null) {
             criteria.andUidEqualTo(blogUserDO.getUid());
         }
