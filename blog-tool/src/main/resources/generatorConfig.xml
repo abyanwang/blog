@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/blog?serverTimezone=Asia/Shanghai&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.fuyu.domain.bo"
+                            targetProject="blog-domain/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="base.com.fuyu.repository.mybatis.mapper"
+                         targetProject="blog-repository/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.fuyu.repository.mybatis.mapper"
+                             targetProject="blog-repository/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="blog_user" domainObjectName="BlogUserDO">
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+            <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <columnOverride column="uid" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <columnOverride column="user_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="avatar" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="is_deleted" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <ignoreColumn column="create_time"/>
+            <ignoreColumn column="update_time"/>
+        </table>
+
+    </context>
+
+</generatorConfiguration>
